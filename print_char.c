@@ -4,18 +4,18 @@
 * f_pchar - function that prints the char at the top of the stack,
 * followed by a new line
 * @head: stack head
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_pchar(stack_t **head, unsigned int counter)
+void func_pchar(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 
 	h = *head;
 	if (!h)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -23,7 +23,7 @@ void f_pchar(stack_t **head, unsigned int counter)
 	}
 	if (h->n > 127 || h->n < 0)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
