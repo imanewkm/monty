@@ -9,7 +9,7 @@
 */
 void func_pop(stack_t **head, unsigned int count)
 {
-	stack_t *h;
+	stack_t *stack;
 
 	if (*head == NULL)
 	{
@@ -21,7 +21,7 @@ void func_pop(stack_t **head, unsigned int count)
 	}
 	h = *head;
 	*head = h->next;
-	free(h);
+	free(stack);
 }
 
 /**
@@ -34,18 +34,18 @@ void func_pop(stack_t **head, unsigned int count)
 
 void func_pstr(stack_t **head, unsigned int count)
 {
-	stack_t *h;
+	stack_t *stack;
 	(void)count;
 
-	h = *head;
-	while (h)
+	stack = *head;
+	while (stack)
 	{
-		if (h->n > 127 || h->n <= 0)
+		if (stack->n > 127 || stack->n <= 0)
 		{
 			break;
 		}
-		printf("%c", h->n);
-		h = h->next;
+		printf("%c", stack->n);
+		stack = stack->next;
 	}
 	printf("\n");
 }
@@ -77,7 +77,7 @@ void func_pint(stack_t **head, unsigned int count)
 */
 void func_push(stack_t **head, unsigned int count)
 {
-	int n, j = 0, flag = 0;
+	int n, j = 0, f = 0;
 
 	if (bus.arg)
 	{
@@ -86,8 +86,8 @@ void func_push(stack_t **head, unsigned int count)
 		for (; bus.arg[j] != '\0'; j++)
 		{
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
-				flag = 1; }
-		if (flag == 1)
+				f = 1; }
+		if (f == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", count);
 			fclose(bus.file);
 			free(bus.content);
@@ -113,20 +113,20 @@ void func_push(stack_t **head, unsigned int count)
  */
 void func_rotr(stack_t **head, __attribute__((unused)) unsigned int count)
 {
-	stack_t *copy;
+	stack_t *cp;
 
-	copy = *head;
+	cp = *head;
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return;
 	}
-	while (copy->next)
+	while (cp->next)
 	{
-		copy = copy->next;
+		cp = cp->next;
 	}
-	copy->next = *head;
-	copy->prev->next = NULL;
-	copy->prev = NULL;
-	(*head)->prev = copy;
-	(*head) = copy;
+	cp->next = *head;
+	cp->prev->next = NULL;
+	cp->prev = NULL;
+	(*head)->prev = cp;
+	(*head) = cp;
 }
