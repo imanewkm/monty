@@ -32,7 +32,7 @@ void addnode_func(stack_t **h, int n)
 * @content: line content
 * Return: no return
 */
-int execute_func(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int exe_func(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
 				{"push", push_func}, {"pall", pall_func}, {"pint", pint_func},

@@ -58,7 +58,7 @@ char  *clean_line(char *content);
 void push_func(stack_t **h, unsigned int number);
 void pall_func(stack_t **h, unsigned int number);
 void pint_func(stack_t **h, unsigned int number);
-int execute_func(char *content, stack_t **h, unsigned int counter, FILE *file);
+int exe_func(char *content, stack_t **h, unsigned int counter, FILE *file);
 void free_stack(stack_t *h);
 void pop_func(stack_t **h, unsigned int counter);
 void swap_func(stack_t **h, unsigned int counter);
