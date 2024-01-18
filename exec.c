@@ -1,33 +1,32 @@
-
 #include "monty.h"
 
 /**
 * execute - function that executes the opcode
 * @stack: head stack linked list
-* @counter: line count
+* @count: line count
 * @file: pointer to monty file stream
 * @content: line content
 *
 * Return: nothing
 */
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int execute(char *content, stack_t **stack, unsigned int count, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-				{"pop", f_pop},
-				{"swap", f_swap},
-				{"add", f_add},
-				{"nop", f_nop},
-				{"sub", f_sub},
-				{"div", f_div},
-				{"mul", f_mul},
-				{"mod", f_mod},
-				{"pchar", f_pchar},
-				{"pstr", f_pstr},
-				{"rotl", f_rotl},
-				{"rotr", f_rotr},
-				{"queue", f_queue},
-				{"stack", f_stack},
+				{"push", func_push}, {"pall", func_pall}, {"pint", func_pint},
+				{"pop", func_pop},
+				{"swap", func_swap},
+				{"add", func_add},
+				{"nop", func_nop},
+				{"sub", func_sub},
+				{"div", func_div},
+				{"mul", func_mul},
+				{"mod", func_mod},
+				{"pchar", func_pchar},
+				{"pstr", func_pstr},
+				{"rotl", func_rotl},
+				{"rotr", func_rotr},
+				{"queue", func_queue},
+				{"stack", func_stack},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -40,13 +39,13 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, counter);
+		{	opst[i].f(stack, count);
 			return (0);
 		}
 		i++;
 	}
 	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+	{ fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
 		fclose(file);
 		free(content);
 		free_stack(*stack);
