@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
-  *f_rotl- rotates the stack to the top
+  *func_rotl- rotates the stack to the top
   *@head: stack head
   *@counter: line_number
   *Return: no return
  */
-void f_rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
+void func_rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
 {
 	stack_t *tmp = *head, *aux;
 
@@ -25,12 +25,12 @@ void f_rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
 	(*head) = aux;
 }
 /**
-  *f_sub- sustration
+  *func_sub- sustration
   *@head: stack head
   *@counter: line_number
   *Return: no return
  */
-void f_sub(stack_t **head, unsigned int counter)
+void func_sub(stack_t **head, unsigned int counter)
 {
 	stack_t *aux;
 	int sus, nodes;
@@ -54,12 +54,12 @@ void f_sub(stack_t **head, unsigned int counter)
 }
 
 /**
- * f_swap - adds the top two elements of the stack.
+ * func_swap - adds the top two elements of the stack.
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_swap(stack_t **head, unsigned int counter)
+void func_swap(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int len = 0, aux;

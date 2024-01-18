@@ -31,97 +31,97 @@ void func_mod(stack_t **head, unsigned int count)
 }
 
 /**
- * f_mul - multiplies the top two elements of the stack.
+ * func_mul - multiplies the top two elements of the stack.
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_mul(stack_t **head, unsigned int counter)
+void func_mul(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
-	int len = 0, aux;
+	stack_t *n;
+	int length = 0, i;
 
-	h = *head;
-	while (h)
+	n = *head;
+	while (n)
 	{
-		h = h->next;
-		len++;
+		n = n->next;
+		length++;
 	}
-	if (len < 2)
+	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->next->n * h->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+	n = *head;
+	i = n->next->j * n->j;
+	n->node->j = i;
+	*head = n->node;
+	free(n);
 }
 
 /**
-  *f_nop- nothing
+  *func_nop - nothing
   *@head: stack head
-  *@counter: line_number
+  *@count: line_number
   *Return: no return
  */
-void f_nop(stack_t **head, unsigned int counter)
+void func_nop(stack_t **head, unsigned int count)
 {
-	(void) counter;
+	(void) count;
 	(void) head;
 }
 
 /**
- * f_pall - prints the stack
+ * func_pall - prints the stack
  * @head: stack head
- * @counter: no used
+ * @count: no used
  * Return: no return
 */
-void f_pall(stack_t **head, unsigned int counter)
+void func_pall(stack_t **head, unsigned int count)
 {
-	stack_t *h;
-	(void)counter;
+	stack_t *n;
+	(void)count;
 
-	h = *head;
-	if (h == NULL)
+	n = *head;
+	if (n == NULL)
 		return;
-	while (h)
+	while (n)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", n->j);
+		n = n->next;
 	}
 }
 
 /**
- * f_pchar - prints the char at the top of the stack,
+ * func_pchar - prints the char at the top of the stack,
  * followed by a new line
  * @head: stack head
- * @counter: line_number
+ * @count: line_number
  * Return: no return
 */
-void f_pchar(stack_t **head, unsigned int counter)
+void func_pchar(stack_t **head, unsigned int count)
 {
-	stack_t *h;
+	stack_t *n;
 
-	h = *head;
-	if (!h)
+	n = *head;
+	if (!n)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	if (h->n > 127 || h->n < 0)
+	if (n->j > 127 || n->j < 0)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", h->n);
+	printf("%c\n", n->j);
 }
