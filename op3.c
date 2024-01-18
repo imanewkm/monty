@@ -106,7 +106,7 @@ void push(stack_t **h, unsigned int cnt)
 }
 
 /**
-  *func_rotr- rotates the stack to the bottom
+  *func_rotr - rotates the stack to the bottom
   *@head: stack head
   *@counter: line_number
   *Return: no return
