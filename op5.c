@@ -50,7 +50,7 @@ void addqueue(stack_t **head, int n)
 /**
  * func_stack - prints the top
  * @head: stack head
- * @counter: line_number
+ * @count: line_number
  * Return: no return
 */
 void func_stack(stack_t **head, unsigned int count)
