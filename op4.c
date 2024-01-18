@@ -2,7 +2,7 @@
 /**
   *func_rotl- rotates the stack to the top
   *@head: stack head
-  *@counter: line_number
+  *@count: line_number
   *Return: no return
  */
 void func_rotl(stack_t **head,  __attribute__((unused)) unsigned int count)
@@ -27,7 +27,7 @@ void func_rotl(stack_t **head,  __attribute__((unused)) unsigned int count)
 /**
   *func_sub- sustration
   *@head: stack head
-  *@counter: line_number
+  *@count: line_number
   *Return: no return
  */
 void func_sub(stack_t **head, unsigned int count)
@@ -56,10 +56,10 @@ void func_sub(stack_t **head, unsigned int count)
 /**
  * func_swap - adds the top two elements of the stack.
  * @head: stack head
- * @counter: line_number
+ * @count: line_number
  * Return: no return
 */
-void func_swap(stack_t **head, unsigned int counter)
+void func_swap(stack_t **head, unsigned int count)
 {
 	stack_t *n;
 	int length = 0, i;
@@ -72,7 +72,7 @@ void func_swap(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
