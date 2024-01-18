@@ -3,14 +3,14 @@
 /**
 * f_queue - function that prints the top of the queue
 * @head: head of queue
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void func_queue(stack_t **head, unsigned int counter)
+void func_queue(stack_t **head, unsigned int count)
 {
 	(void)head;
-	(void)counter;
+	(void)count;
 	bus.lifi = 1;
 }
 
