@@ -3,17 +3,17 @@
 /**
 * f_pop - function that prints the top of the stack
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_pop(stack_t **head, unsigned int counter)
+void func_pop(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -27,15 +27,15 @@ void f_pop(stack_t **head, unsigned int counter)
 /**
 * f_pint - function that prints the top of the stack
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_pint(stack_t **head, unsigned int counter)
+void f_pint(stack_t **head, unsigned int count)
 {
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -47,12 +47,12 @@ void f_pint(stack_t **head, unsigned int counter)
 /**
 * f_nop - function that does nothing
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_nop(stack_t **head, unsigned int counter)
+void f_nop(stack_t **head, unsigned int count)
 {
-	(void) counter;
+	(void) count;
 	(void) head;
 }
