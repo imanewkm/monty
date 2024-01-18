@@ -7,22 +7,22 @@
  */
 void func_rotl(stack_t **head,  __attribute__((unused)) unsigned int count)
 {
-	stack_t *tmp = *head, *aux;
+	stack_t *tmp = *head, *i;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*head == NULL || (*head)->next_node == NULL)
 	{
 		return;
 	}
-	aux = (*head)->next;
-	aux->prev = NULL;
-	while (tmp->next != NULL)
+	i = (*head)->next;
+	i->prev = NULL;
+	while (tmp->next_node != NULL)
 	{
-		tmp = tmp->next;
+		tmp = tmp->next_node;
 	}
-	tmp->next = *head;
-	(*head)->next = NULL;
+	tmp->next_node = *head;
+	(*head)->next_node = NULL;
 	(*head)->prev = tmp;
-	(*head) = aux;
+	(*head) = i;
 }
 /**
   *func_sub- sustration
@@ -32,13 +32,13 @@ void func_rotl(stack_t **head,  __attribute__((unused)) unsigned int count)
  */
 void func_sub(stack_t **head, unsigned int count)
 {
-	stack_t *aux;
-	int sus, nodes;
+	stack_t *i;
+	int s, node;
 
-	aux = *head;
-	for (nodes = 0; aux != NULL; nodes++)
-		aux = aux->next;
-	if (nodes < 2)
+	i = *head;
+	for (node = 0; i != NULL; node++)
+		i = i->next_node;
+	if (node < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", count);
 		fclose(bus.file);
@@ -46,11 +46,11 @@ void func_sub(stack_t **head, unsigned int count)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	aux = *head;
-	sus = aux->next->n - aux->n;
-	aux->next->n = sus;
-	*head = aux->next;
-	free(aux);
+	i = *head;
+	s = i->next_node->j - i->j;
+	i->next_node->j = s;
+	*head = i->next_node;
+	free(i);
 }
 
 /**
@@ -61,16 +61,16 @@ void func_sub(stack_t **head, unsigned int count)
 */
 void func_swap(stack_t **head, unsigned int count)
 {
-	stack_t *h;
-	int len = 0, aux;
+	stack_t *n;
+	int length = 0, i;
 
-	h = *head;
-	while (h)
+	n = *head;
+	while (n)
 	{
-		h = h->next;
-		len++;
+		n = n->next_node;
+		length++;
 	}
-	if (len < 2)
+	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", count);
 		fclose(bus.file);
@@ -78,8 +78,8 @@ void func_swap(stack_t **head, unsigned int count)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n;
-	h->n = h->next->n;
-	h->next->n = aux;
+	n = *head;
+	i = n->j;
+	n->j = n->next_node->j;
+	n->next_node->j = i;
 }
