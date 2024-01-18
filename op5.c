@@ -5,10 +5,10 @@
  * @count: line_number
  * Return: no return
 */
-void func_queue(stack_t **head, unsigned int counter)
+void func_queue(stack_t **head, unsigned int count)
 {
 	(void)head;
-	(void)counter;
+	(void)count;
 	bus.lifi = 1;
 }
 
@@ -20,30 +20,30 @@ void func_queue(stack_t **head, unsigned int counter)
 */
 void addqueue(stack_t **head, int n)
 {
-	stack_t *new_node, *aux;
+	stack_t *node, *i;
 
-	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	i = *head;
+	node = malloc(sizeof(stack_t));
+	if (node == NULL)
 	{
 		printf("Error\n");
 	}
-	new_node->n = n;
-	new_node->next = NULL;
-	if (aux)
+	node->n = n;
+	node->next_node = NULL;
+	if (i)
 	{
-		while (aux->next)
-			aux = aux->next;
+		while (i->next_node)
+			i = i->next_node;
 	}
-	if (!aux)
+	if (!i)
 	{
-		*head = new_node;
-		new_node->prev = NULL;
+		*head = node;
+		node->prev = NULL;
 	}
 	else
 	{
-		aux->next = new_node;
-		new_node->prev = aux;
+		i->next = node;
+		node->prev = i;
 	}
 }
 
@@ -53,9 +53,9 @@ void addqueue(stack_t **head, int n)
  * @counter: line_number
  * Return: no return
 */
-void func_stack(stack_t **head, unsigned int counter)
+void func_stack(stack_t **head, unsigned int count)
 {
 	(void)head;
-	(void)counter;
+	(void)count;
 	bus.lifi = 0;
 }

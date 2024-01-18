@@ -106,7 +106,7 @@ void func_push(stack_t **head, unsigned int count)
 		addqueue(head, n);
 }
 /**
-  *func_rotr- rotates the stack to the bottom
+  *func_rotr - rotates the stack to the bottom
   *@head: stack head
   *@count: line_number
   *Return: no return
