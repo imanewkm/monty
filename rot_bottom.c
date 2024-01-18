@@ -3,11 +3,11 @@
 /**
 * f_rotr - function that rotates the stack to the bottom
 * @head: stack head of the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
+void func_rotr(stack_t **head, __attribute__((unused)) unsigned int count)
 {
 	stack_t *copy;
 
