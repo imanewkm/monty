@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
-* f_add - function that adds the top two elements of the stack
+* func_add - function that adds the top two elements of the stack
 * @head: double pointer head to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_add(stack_t **head, unsigned int counter)
+void func_add(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -20,7 +20,7 @@ void f_add(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't add, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -34,13 +34,13 @@ void f_add(stack_t **head, unsigned int counter)
 }
 
 /**
-* f_sub - function that substracts nodes
+* func_sub - function that substracts nodes
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_sub(stack_t **head, unsigned int counter)
+void func_sub(stack_t **head, unsigned int count)
 {
 	stack_t *temp;
 	int sub, nd;
@@ -50,7 +50,7 @@ void f_sub(stack_t **head, unsigned int counter)
 		temp = temp->next;
 	if (nd < 2)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -64,13 +64,13 @@ void f_sub(stack_t **head, unsigned int counter)
 }
 
 /**
-* f_mul - function that multiplies the top two elements of the stack
+* func_mul - function that multiplies the top two elements of the stack
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_mul(stack_t **head, unsigned int counter)
+void func_mul(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -83,7 +83,7 @@ void f_mul(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -97,13 +97,13 @@ void f_mul(stack_t **head, unsigned int counter)
 }
 
 /**
-* f_div - function that divides the top two elements of the stack
+* func_div - function that divides the top two elements of the stack
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_div(stack_t **head, unsigned int counter)
+void func_div(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -116,7 +116,7 @@ void f_div(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't div, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -125,7 +125,7 @@ void f_div(stack_t **head, unsigned int counter)
 	h = *head;
 	if (h->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
+		fprintf(stderr, "L%d: division by zero\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -138,14 +138,14 @@ void f_div(stack_t **head, unsigned int counter)
 }
 
 /**
-* f_mod - function that computes the remainder of the division of the second
+* func_mod - function that computes the remainder of the division of the second
 * top element of the stack by the top element of the stack
 * @head: double head pointer to the stack
-* @counter: line count
+* @count: line count
 *
 * Return: nothing
 */
-void f_mod(stack_t **head, unsigned int counter)
+void func_mod(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -158,7 +158,7 @@ void f_mod(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -167,7 +167,7 @@ void f_mod(stack_t **head, unsigned int counter)
 	h = *head;
 	if (h->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
+		fprintf(stderr, "L%d: division by zero\n", count);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
