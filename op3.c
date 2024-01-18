@@ -23,7 +23,6 @@ void func_pop(stack_t **head, unsigned int count)
 	*head = h->next;
 	free(stack);
 }
-
 /**
  * func_pstr - prints the string starting at the top of the stack,
  * followed by a new
@@ -31,12 +30,10 @@ void func_pop(stack_t **head, unsigned int count)
  * @count: line_number
  * Return: no return
 */
-
 void func_pstr(stack_t **head, unsigned int count)
 {
 	stack_t *stack;
 	(void)count;
-
 	stack = *head;
 	while (stack)
 	{
@@ -49,7 +46,6 @@ void func_pstr(stack_t **head, unsigned int count)
 	}
 	printf("\n");
 }
-
 /**
  * func_pint - prints the top
  * @head: stack head
@@ -68,7 +64,6 @@ void func_pint(stack_t **head, unsigned int count)
 	}
 	printf("%d\n", (*head)->n);
 }
-
 /**
  * func_push - add node to the stack
  * @head: stack head
@@ -106,27 +101,27 @@ void func_push(stack_t **head, unsigned int count)
 		addqueue(head, n);
 }
 /**
-  *func_rotr - rotates the stack to the bottom
+  *f_rotr- rotates the stack to the bottom
   *@head: stack head
-  *@count: line_number
+  *@counter: line_number
   *Return: no return
  */
-void func_rotr(stack_t **head, __attribute__((unused)) unsigned int count)
+void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
 {
-	stack_t *cp;
+	stack_t *copy;
 
-	cp = *head;
+	copy = *head;
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return;
 	}
-	while (cp->next)
+	while (copy->next)
 	{
-		cp = cp->next;
+		copy = copy->next;
 	}
-	cp->next = *head;
-	cp->prev->next = NULL;
-	cp->prev = NULL;
-	(*head)->prev = cp;
-	(*head) = cp;
+	copy->next = *head;
+	copy->prev->next = NULL;
+	copy->prev = NULL;
+	(*head)->prev = copy;
+	(*head) = copy;
 }
