@@ -2,79 +2,80 @@
 #define MIN_ASCII 1
 #define MAX_ASCII 127
 /**
- * pop_from_stack - prints the top
- * @h: stack head
- * @cnt: line_number
+ * func_pop - prints the top
+ * @head: stack head
+ * @count: line_number
  * Return: no return
 */
-void pop_from_stack(stack_t **h, unsigned int cnt)
+void func_pop(stack_t **head, unsigned int count)
 {
-	stack_t *head;
+	stack_t *h;
 
-	if (*h == NULL)
+	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", cnt);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", count);
 		fclose(bus.file);
 		free(bus.content);
-		free_stack(*h);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	head = *h;
-	*h = head->next;
-	free(head);
+	h = *head;
+	*head = h->next;
+	free(h);
 }
 
 /**
- * print_string - prints the string starting at the top of the stack,
+ * func_pstr - prints the string starting at the top of the stack,
  * followed by a new
- * @h: stack head
- * @cnt: line_number
+ * @head: stack head
+ * @count: line_number
  * Return: no return
 */
-void print_string(stack_t **h, unsigned int cnt)
-{
-	stack_t *head;
-	(void)cnt;
 
-	head = *h;
-	while (head)
+void func_pstr(stack_t **head, unsigned int count)
+{
+	stack_t *h;
+	(void)count;
+
+	h = *head;
+	while (h)
 	{
-		if (head->n > MAX_ASCII || head->n <= MIN_ASCII)
+		if (h->n > 127 || h->n <= 0)
 		{
 			break;
 		}
-		printf("%c", head->n);
-		head = head->next;
+		printf("%c", h->n);
+		h = h->next;
 	}
 	printf("\n");
 }
 
 /**
- * print_top_of_stack - prints the top
- * @h: stack head
- * @cnt: line_number
+ * func_pint - prints the top
+ * @head: stack head
+ * @count: line_number
  * Return: no return
 */
-void print_top_of_stack(stack_t **h, unsigned int cnt)
+void func_pint(stack_t **head, unsigned int count)
 {
-	if (*h == NULL)
+	if (*head == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", cnt;
+		fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 		fclose(bus.file);
 		free(bus.content);
-		free_stack(*h);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*h)->n);
+	printf("%d\n", (*head)->n);
 }
 
 /**
- * push - add node to the stack
- * @h: stack head
- * @cnt: line_number
+ * func_push - add node to the stack
+ * @head: stack head
+ * @count: line_number
  * Return: no return
 */
-void push(stack_t **h, unsigned int cnt)
+void func_push(stack_t **head, unsigned int count)
 {
 	int n, j = 0, flag = 0;
 
@@ -87,31 +88,30 @@ void push(stack_t **h, unsigned int cnt)
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 				flag = 1; }
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", cnt);
+		{ fprintf(stderr, "L%d: usage: push integer\n", count);
 			fclose(bus.file);
 			free(bus.content);
-			free_stack(*h);
+			free_stack(*head);
 			exit(EXIT_FAILURE); }}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", cnt);
+	{ fprintf(stderr, "L%d: usage: push integer\n", count);
 		fclose(bus.file);
 		free(bus.content);
-		free_stack(*h);
+		free_stack(*head);
 		exit(EXIT_FAILURE); }
 	n = atoi(bus.arg);
 	if (bus.lifi == 0)
-		addnode(h, n);
+		addnode(head, n);
 	else
-		addqueue(h, n);
+		addqueue(head, n);
 }
-
 /**
   *func_rotr- rotates the stack to the bottom
   *@head: stack head
-  *@counter: line_number
+  *@count: line_number
   *Return: no return
  */
-void func_rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
+void func_rotr(stack_t **head, __attribute__((unused)) unsigned int count)
 {
 	stack_t *copy;
 
